@@ -19,7 +19,7 @@ export default function Home() {
         </div>
 
         <div className="hero-visual">
-          <Image src="/hero-founder.jpg" alt="PARADISE8のポートレート" width={1200} height={1600} sizes="(max-width: 800px) 100vw, 42vw" priority />
+          <Image src="/old-clothing.jpg" alt="古着とモーターサイクルが並ぶPARADISE8のカルチャー空間" width={1200} height={1600} sizes="(max-width: 800px) 100vw, 42vw" priority />
           <div className="hero-number" aria-hidden="true">8</div>
           <p className="photo-note">BEAUTY / VINTAGE<br />FOOD / CARE</p>
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
         <div className="image-ribbon">
           <figure><Image src="/salon-park.jpg" alt="#01 parkのサロン空間" width={1600} height={1200} sizes="(max-width: 800px) 50vw, 37vw" /><figcaption>01 / HAIR SALON</figcaption></figure>
           <figure><Image src="/otto-antiques.jpg" alt="OttO ANTIQUESの店内" width={1600} height={1200} sizes="(max-width: 800px) 50vw, 27vw" /><figcaption>02 / ANTIQUES</figcaption></figure>
-          <figure><Image src="/old-clothing.jpg" alt="08 old clothingの店内" width={1600} height={1200} sizes="37vw" /><figcaption>03 / VINTAGE WEAR</figcaption></figure>
+          <figure><Image src="/otton-dining.jpg" alt="まるいち おっとんの料理" width={1600} height={1200} sizes="37vw" /><figcaption>03 / FOOD</figcaption></figure>
         </div>
         <Link href="/business" className="round-link" aria-label="事業とブランドを見る"><span>OUR<br />BUSINESS</span><b>↗</b></Link>
       </section>

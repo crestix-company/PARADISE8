@@ -61,7 +61,7 @@ export default function BusinessPage() {
       />
       <section className="brand-intro content-section">
         <p className="section-index">OUR BRANDS & PROJECTS</p>
-        <h2>美しさは、<br />髪の中だけにない。</h2>
+        <h2><span className="type-line">美しさは、</span><span className="type-line">髪の中だけに</span><span className="type-line">ない。</span></h2>
         <p>技術も、服も、家具も、食事も、誰かを想って届ける時間も。私たちは、日立の街に根を張りながら、暮らしを彩る複数のブランドを育てています。</p>
       </section>
       <section className="brand-list">

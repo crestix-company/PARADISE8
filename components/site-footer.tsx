@@ -1,11 +1,12 @@
 import Link from 'next/link';
+import { RECRUIT_URL } from '@/lib/links';
 
 export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-top">
         <p className="footer-kicker">READY TO CREATE YOUR PARADISE?</p>
-        <Link href="/recruit" className="footer-recruit">JOIN OUR<br />DREAM TEAM <span>↗</span></Link>
+        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="footer-recruit">JOIN OUR<br />DREAM TEAM <span>↗</span></Link>
       </div>
       <div className="footer-grid">
         <Link href="/" className="footer-logo">PARADISE<span>8</span></Link>
@@ -17,7 +18,7 @@ export function SiteFooter() {
           <Link href="/about">ABOUT</Link>
           <Link href="/business">BUSINESS</Link>
           <Link href="/story">STORY</Link>
-          <Link href="/recruit">RECRUIT</Link>
+          <Link href={RECRUIT_URL} target="_blank" rel="noreferrer">RECRUIT</Link>
           <Link href="/company">COMPANY</Link>
           <Link href="/contact">CONTACT</Link>
         </nav>

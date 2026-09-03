@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { RECRUIT_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ｜株式会社PARADISE8',
@@ -10,9 +11,9 @@ export const metadata: Metadata = {
 
 const contacts = [
   {
-    type: 'RECRUIT', name: 'PARADISE8の採用情報',
-    note: '募集状況、応募条件、サロン見学について。最新情報は求人ページをご確認ください',
-    actions: [['最新の採用情報を見る', 'https://work.beauty.hotpepper.jp/WC00022366/', '↗']],
+    type: 'RECRUIT', name: '#01 park hair&∞ 採用情報',
+    note: '募集状況、応募条件、サロン見学について。公式リクルートページをご確認ください',
+    actions: [['公式リクルートページを見る', RECRUIT_URL, '↗']],
   },
   {
     type: 'HAIR SALON', name: '#01 ORIGINAL',

@@ -46,7 +46,7 @@ export default function CompanyPage() {
       <section className="company-location">
         <div>
           <p className="section-index light">REGISTERED OFFICE</p>
-          <h2>日立に根を張る、<br />私たちの現在地。</h2>
+          <h2><span className="type-line">日立に根を張る、</span><span className="type-line">私たちの現在地。</span></h2>
           <p>〒316-0034<br />茨城県日立市東成沢町1丁目6番14号</p>
           <a href="https://www.google.com/maps/search/?api=1&query=%E8%8C%A8%E5%9F%8E%E7%9C%8C%E6%97%A5%E7%AB%8B%E5%B8%82%E6%9D%B1%E6%88%90%E6%B2%A2%E7%94%BA1-6-14" target="_blank" rel="noreferrer" className="outline-link">GOOGLE MAP <span>↗</span></a>
         </div>

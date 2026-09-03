@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { RECRUIT_URL } from '@/lib/links';
 
 export const metadata: Metadata = {
   title: '創業者のストーリー｜株式会社PARADISE8',
@@ -40,7 +41,7 @@ export default function StoryPage() {
         <figure className="founder-photo"><Image src="/hero-founder.jpg" alt="PARADISE8のポートレート" width={1200} height={1600} sizes="(max-width: 800px) 100vw, 48vw" /></figure>
         <div className="founder-copy">
           <p className="section-index">YUKI NAKAGAWA / FOUNDER & CRAFTSMAN</p>
-          <h2>お客様より、<br />お客様の髪にこだわる。</h2>
+          <h2><span className="type-line">お客様より、</span><span className="type-line">お客様の髪に</span><span className="type-line">こだわる。</span></h2>
           <p>美容師歴20年以上。髪質や状態を見極めるカット、ハイライト、バレイヤージュ、髪質改善などを通して、一人ひとりにとっての“その人らしさ”を追求してきました。</p>
           <p>けれど、こだわってきたのは髪だけではありません。服も、家具も、店の空気も、仲間の働き方も。好きなものを中途半端にせず、自分たちの手で理想の場所をつくり続けています。</p>
         </div>
@@ -49,7 +50,7 @@ export default function StoryPage() {
       <section className="message-section">
         <p className="section-index light">WHAT WE AIM FOR</p>
         <div className="message-headline">
-          <p>美容師がもっと美容を<br />楽しめる会社をつくる。</p>
+          <p><span className="type-line">美容師がもっと</span><span className="type-line">美容を楽しめる</span><span className="type-line">会社をつくる。</span></p>
         </div>
         <div className="message-body">
           <p>美容師という仕事は、技術だけで完結する仕事ではありません。</p>
@@ -61,7 +62,7 @@ export default function StoryPage() {
       <section className="timeline-section content-section">
         <div className="timeline-heading">
           <p className="section-index">HISTORY</p>
-          <h2>好きなことを、<br />本気で重ねてきた。</h2>
+          <h2><span className="type-line">好きなことを、</span><span className="type-line">本気で重ねてきた。</span></h2>
           <figure><Image src="/portrait-team.jpg" alt="PARADISE8をつくる人" width={1200} height={1600} sizes="(max-width: 800px) 82vw, 29vw" /></figure>
         </div>
         <ol className="timeline">
@@ -71,8 +72,8 @@ export default function StoryPage() {
 
       <section className="story-next">
         <p>THE NEXT CHAPTER IS YOURS.</p>
-        <h2>次の物語を、<br />一緒につくろう。</h2>
-        <Link href="/recruit" className="solid-link">採用情報を見る <span>↗</span></Link>
+        <h2><span className="type-line">次の物語を、</span><span className="type-phrase">一緒に</span><wbr /><span className="type-phrase">つくろう。</span></h2>
+        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">採用情報を見る <span>↗</span></Link>
       </section>
       <SiteFooter />
     </main>

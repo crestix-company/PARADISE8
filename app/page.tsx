@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { RECRUIT_URL } from '@/lib/links';
 
 export default function Home() {
   return (
@@ -40,7 +41,7 @@ export default function Home() {
       <section className="home-salons" id="salons">
         <div className="home-salons-heading">
           <p className="section-index">02 / HAIR SALON</p>
-          <h2>美容が、<br />すべての原点。</h2>
+          <h2><span className="type-line">美容が、</span><span className="type-line">すべての原点。</span></h2>
           <p>技術と感性で、一人ひとりの“らしさ”をかたちにする。髪を通して毎日を少し自由にすることから、PARADISE8は始まりました。</p>
         </div>
 
@@ -50,7 +51,7 @@ export default function Home() {
             <div className="home-salon-panel">
               <p className="home-salon-meta">01 / HIGASHINARUSAWA, HITACHI</p>
               <h3>#01 park<br /><span>hair&amp;∞</span></h3>
-              <p className="home-salon-jp">海を望むサロンで、<br />未来の髪まで美しく。</p>
+              <p className="home-salon-jp"><span className="type-line">海を望むサロンで、</span><span className="type-line">未来の髪まで美しく。</span></p>
               <p>傷ませない技術と、自宅でも扱いやすい再現性を大切に。一人ひとりのこれからまで考えたデザインを提案します。</p>
               <a href="https://01park-otto.com/" target="_blank" rel="noreferrer" className="home-salon-link">SALON SITE <span>→</span></a>
             </div>
@@ -61,7 +62,7 @@ export default function Home() {
             <div className="home-salon-panel">
               <p className="home-salon-meta">02 / KASHIMA, HITACHI</p>
               <h3>#01<br /><span>ORIGINAL</span></h3>
-              <p className="home-salon-jp">髪質も、骨格も、装いも。<br />その人だけの答えへ。</p>
+              <p className="home-salon-jp"><span className="type-phrase">髪質も、骨格も、</span><wbr /><span className="type-phrase">装いも。</span><br /><span className="type-phrase">その人だけの答えへ。</span></p>
               <p>カット、デザインカラー、髪質改善。高い技術と細部へのこだわりで、まだ知らない自分らしさを引き出します。</p>
               <a href="https://beauty.hotpepper.jp/slnH000380119/" target="_blank" rel="noreferrer" className="home-salon-link">SALON &amp; RESERVATION <span>→</span></a>
             </div>
@@ -88,9 +89,9 @@ export default function Home() {
         <p className="section-index">04 / RECRUIT</p>
         <div className="recruit-word">PLAY 3×<br /><span>WORK 5×</span></div>
         <div className="recruit-copy">
-          <h2>美容師という仕事を、<br />もっと楽しめる場所へ。</h2>
+          <h2><span className="type-line">美容師という仕事を、</span><span className="type-line">もっと楽しめる場所へ。</span></h2>
           <p>3倍遊んで絆を深め、5倍働いて社会に恩返しする。技術だけでなく、人としての可能性まで広げられるDREAM TEAMをつくろう。</p>
-          <Link href="/recruit" className="solid-link">採用情報を見る <span>↗</span></Link>
+          <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">採用情報を見る <span>↗</span></Link>
         </div>
       </section>
       <SiteFooter />

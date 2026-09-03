@@ -27,32 +27,74 @@ img { display: block; width: 100%; }
 .desktop-nav a:hover::after { inset-right: 0; }
 .header-cta { justify-self: end; display: flex; align-items: center; gap: 20px; font-size: 11px; font-weight: 900; letter-spacing: .15em; }
 .header-cta span { display: grid; place-items: center; width: 38px; aspect-ratio: 1; background: var(--ink); color: white; border-radius: 50%; }
+.site-header--home { height: 70px; background: rgba(247, 246, 242, .94); }
+.site-header--home .header-cta { gap: 10px; }
+.site-header--home .header-cta span { width: auto; aspect-ratio: auto; background: transparent; color: var(--electric); border-radius: 0; font-size: 18px; }
 
-.hero { min-height: 100svh; padding: 128px 3.2vw 54px; display: grid; grid-template-columns: 58% 42%; position: relative; overflow: hidden; }
-.hero-copy { z-index: 2; align-self: center; padding-right: 2vw; }
-.eyebrow { display: flex; gap: 32px; margin: 0 0 5vh; font-size: 10px; font-weight: 800; letter-spacing: .22em; }
-.eyebrow span:first-child { color: var(--electric); }
-.hero h1 { margin: 0; font-family: Impact, 'Arial Black', sans-serif; font-size: clamp(74px, 10.8vw, 176px); font-weight: 900; line-height: .78; letter-spacing: -.07em; }
-.hero h1 em { color: var(--electric); font-family: Georgia, 'Yu Mincho', serif; font-weight: 400; letter-spacing: -.08em; }
-.hero-statement { margin: 6vh 0 0 43%; display: grid; grid-template-columns: 1fr 1.35fr; gap: 28px; font-size: 12px; line-height: 1.9; }
-.hero-statement p { margin: 0; }
-.hero-statement p:first-child { font-family: 'Yu Mincho', serif; font-size: 16px; font-weight: 700; }
-.hero-visual { height: calc(100svh - 182px); min-height: 520px; position: relative; overflow: hidden; background: #c9c5bd; }
-.hero-visual img { height: 100%; object-fit: cover; filter: saturate(.72) contrast(1.08); }
-.hero-number { position: absolute; right: -2%; bottom: -18%; color: var(--blue); font-family: Georgia, serif; font-size: clamp(250px, 36vw, 580px); line-height: 1; mix-blend-mode: screen; opacity: .82; }
-.photo-note { position: absolute; top: 22px; right: 22px; margin: 0; color: white; text-align: right; font-size: 9px; line-height: 1.5; letter-spacing: .15em; }
-.hero-strip { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-around; align-items: center; height: 34px; background: var(--ink); color: white; font-size: 10px; font-weight: 800; letter-spacing: .2em; }
-.hero-strip i { color: var(--electric); font-style: normal; }
+.salon-hero { min-height: 100svh; position: relative; overflow: hidden; background: var(--ink); color: white; }
+.salon-hero-slides, .salon-hero-slide, .salon-hero-overlay { position: absolute; inset: 0; width: 100%; height: 100%; }
+.salon-hero-slide { object-fit: cover; filter: saturate(.78) contrast(1.04); }
+.salon-hero-slide--park { object-position: 50% 52%; animation: salonHeroPark 14s infinite linear; }
+.salon-hero-slide--original { object-position: 50% 48%; opacity: 0; animation: salonHeroOriginal 14s infinite linear; }
+.salon-hero-overlay { z-index: 2; background: linear-gradient(180deg, rgba(8,10,10,.28), rgba(8,10,10,.48)); }
+.salon-hero-copy { position: absolute; z-index: 3; top: 52%; left: 50%; width: min(1160px, 92vw); transform: translate(-50%, -50%); text-align: center; }
+.salon-hero-kicker { margin: 0 0 24px; font-size: 10px; font-weight: 800; letter-spacing: .32em; }
+.salon-hero-copy h1 { margin: 0; color: white; }
+.salon-hero-copy h1 span { display: block; margin-bottom: 14px; font-family: Arial, sans-serif; font-size: clamp(13px, 1.25vw, 19px); font-style: normal; font-weight: 500; letter-spacing: .48em; }
+.salon-hero-copy h1 em { display: block; font-family: Georgia, 'Times New Roman', 'Yu Mincho', serif; font-size: clamp(56px, 7vw, 108px); font-weight: 400; line-height: .92; letter-spacing: -.045em; }
+.salon-hero-jp { margin: 36px 0 0; font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif; font-size: clamp(17px, 1.7vw, 26px); letter-spacing: .18em; }
+.salon-hero-signature { position: absolute; z-index: 3; left: 3.2vw; bottom: 34px; display: flex; gap: 28px; font-size: 9px; font-weight: 700; letter-spacing: .18em; }
+.salon-hero-signature span { padding-top: 10px; border-top: 1px solid rgba(255,255,255,.55); }
+.salon-hero-scroll { position: absolute; z-index: 3; right: 3.2vw; bottom: 28px; display: flex; align-items: center; gap: 14px; font-size: 8px; font-weight: 800; letter-spacing: .22em; }
+.salon-hero-scroll::after { content: ''; width: 64px; height: 1px; background: rgba(255,255,255,.7); animation: salonScrollLine 2.2s ease-in-out infinite; }
+@keyframes salonHeroPark {
+  0% { opacity: 1; transform: scale(1.035); }
+  42% { opacity: 1; transform: scale(1); }
+  52%, 90% { opacity: 0; transform: scale(1.035); }
+  100% { opacity: 1; transform: scale(1.035); }
+}
+@keyframes salonHeroOriginal {
+  0%, 42% { opacity: 0; transform: scale(1.035); }
+  52% { opacity: 1; transform: scale(1.035); }
+  90% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.035); }
+}
+@keyframes salonScrollLine { 0%, 100% { transform: scaleX(.2); transform-origin: left; } 50% { transform: scaleX(1); transform-origin: left; } }
 
 .section-index { margin: 0 0 80px; font-size: 10px; font-weight: 900; letter-spacing: .2em; }
 .section-index.light { color: rgba(255,255,255,.62); }
-.manifesto { padding: 140px 7vw 160px; border-top: 1px solid var(--line); }
-.manifesto-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 10vw; align-items: start; }
-.manifesto h2 { margin: 0; font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif; font-size: clamp(46px, 6.6vw, 100px); font-weight: 400; line-height: 1.18; letter-spacing: -.06em; }
-.manifesto-grid > div { padding-top: 18px; }
-.manifesto-grid p { margin: 0 0 26px; font-size: 13px; line-height: 2.15; }
-.manifesto-grid .manifesto-lead { font-family: 'Yu Mincho', serif; font-size: 23px; line-height: 1.75; }
+.home-vision { padding: 150px 20px 165px; background: #f7f6f2; }
+.home-vision-inner { width: min(860px, 100%); margin: 0 auto; }
+.home-vision .section-index { margin-bottom: 70px; color: var(--electric); }
+.home-vision-en { margin: 0 0 28px; font-family: Georgia, 'Times New Roman', serif; font-size: 13px; letter-spacing: .24em; color: #837d73; }
+.home-vision h2 { margin: 0 0 48px; font-family: 'Yu Mincho', 'Hiragino Mincho ProN', serif; font-size: clamp(36px, 4.6vw, 66px); font-weight: 400; line-height: 1.48; letter-spacing: .07em; }
+.home-vision-lead { margin: 0 0 34px; font-family: 'Yu Mincho', serif; font-size: clamp(18px, 2vw, 25px); line-height: 2; letter-spacing: .08em; }
+.home-vision-body { max-width: 680px; margin: 0; font-size: 13px; line-height: 2.5; letter-spacing: .04em; }
+.home-vision-link { margin-top: 56px; display: flex; justify-content: flex-end; }
+.home-vision-link .outline-link { width: min(280px, 100%); }
 .text-link { margin-top: 34px; padding: 16px 0; display: flex; justify-content: space-between; border-bottom: 1px solid var(--ink); font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+
+.home-salons { padding: 140px 4vw 180px; background: var(--paper); overflow: hidden; }
+.home-salons-heading { width: min(1180px, 100%); margin: 0 auto 125px; display: grid; grid-template-columns: .55fr 1fr .75fr; gap: 6vw; align-items: end; }
+.home-salons-heading .section-index { margin: 0; }
+.home-salons-heading h2 { margin: 0; font-family: 'Yu Mincho', serif; font-size: clamp(42px, 5.4vw, 80px); font-weight: 400; line-height: 1.35; letter-spacing: -.035em; }
+.home-salons-heading > p:last-child { margin: 0; font-size: 12px; line-height: 2.2; }
+.home-salon-showcase { width: min(1220px, 100%); margin: 0 auto; display: grid; gap: 170px; }
+.home-salon-feature { min-height: 650px; position: relative; }
+.home-salon-feature figure { width: 68%; height: 620px; margin: 0; overflow: hidden; background: #d8d4cc; }
+.home-salon-feature figure img { height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2,.7,.2,1); }
+.home-salon-feature:hover figure img { transform: scale(1.025); }
+.home-salon-feature--reverse figure { margin-left: auto; }
+.home-salon-panel { position: absolute; z-index: 2; top: 50%; right: 0; width: 45%; padding: 56px 54px; transform: translateY(-50%); background: #fff; box-shadow: 0 22px 65px rgba(17,17,15,.09); }
+.home-salon-feature--reverse .home-salon-panel { right: auto; left: 0; }
+.home-salon-meta { margin: 0 0 38px; color: #8c867c; font-size: 9px; font-weight: 700; letter-spacing: .2em; }
+.home-salon-panel h3 { margin: 0 0 30px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(42px, 4.5vw, 68px); font-weight: 400; line-height: .88; letter-spacing: -.04em; }
+.home-salon-panel h3 span { font-family: Arial, sans-serif; font-size: .47em; font-weight: 700; letter-spacing: .03em; }
+.home-salon-jp { margin: 0 0 22px !important; font-family: 'Yu Mincho', serif; font-size: clamp(18px, 1.7vw, 24px) !important; line-height: 1.8 !important; letter-spacing: .05em; }
+.home-salon-panel > p:not(.home-salon-meta):not(.home-salon-jp) { margin: 0; font-size: 11px; line-height: 2.1; }
+.home-salon-link { margin-top: 38px; padding: 16px 0; display: flex; justify-content: space-between; border-bottom: 1px solid var(--ink); font-size: 10px; font-weight: 800; letter-spacing: .15em; }
+.home-salons-more { width: min(1220px, 100%); margin: 95px auto 0; display: flex; justify-content: flex-end; }
+.home-salons-more .outline-link { width: min(340px, 100%); }
 
 .preview-business { position: relative; overflow: hidden; padding: 110px 3.2vw 150px; background: var(--ink); color: white; }
 .preview-head { display: grid; grid-template-columns: 1.4fr .6fr; gap: 5vw; align-items: end; }
@@ -269,18 +311,42 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline
   .mobile-menu nav a:last-child { border-bottom: 1px solid rgba(17,17,15,.35); }
   .mobile-menu nav b { font-family: Arial, sans-serif; font-size: 9px; }
   .mobile-menu nav span { font-family: Arial, sans-serif; font-size: 20px; }
-  .hero { padding: 100px 20px 54px; grid-template-columns: 1fr; min-height: auto; }
-  .hero-copy { padding: 0; }
-  .eyebrow { margin-bottom: 34px; }
-  .hero h1 { font-size: clamp(64px, 22vw, 106px); }
-  .hero-statement { margin: 40px 0; grid-template-columns: 1fr; gap: 10px; }
-  .hero-visual { min-height: 470px; height: 68svh; }
-  .hero-strip { position: relative; margin: 0 -20px -54px; width: calc(100% + 40px); }
-  .manifesto, .recruit-teaser { padding: 100px 20px; }
+  .salon-hero { min-height: 100svh; }
+  .salon-hero-slide--park { object-position: 53% 50%; }
+  .salon-hero-slide--original { object-position: 46% 50%; }
+  .salon-hero-copy { top: 49%; width: calc(100% - 40px); }
+  .salon-hero-kicker { margin-bottom: 20px; font-size: 8px; letter-spacing: .24em; }
+  .salon-hero-copy h1 span { font-size: 10px; letter-spacing: .38em; }
+  .salon-hero-copy h1 em { font-size: clamp(50px, 14vw, 72px); }
+  .salon-hero-jp { margin-top: 26px; font-size: 14px; letter-spacing: .11em; }
+  .salon-hero-signature { left: 20px; bottom: 24px; flex-direction: column; gap: 7px; font-size: 7px; }
+  .salon-hero-signature span { padding-top: 0; border: 0; }
+  .salon-hero-scroll { right: 20px; bottom: 22px; }
+  .salon-hero-scroll::after { width: 38px; }
+  .recruit-teaser { padding: 100px 20px; }
   .section-index { margin-bottom: 50px; }
-  .manifesto-grid, .preview-head { grid-template-columns: 1fr; gap: 50px; }
-  .manifesto-grid > div { padding: 0; }
-  .manifesto-grid .manifesto-lead { font-size: 19px; }
+  .home-vision { padding: 110px 20px 125px; }
+  .home-vision .section-index { margin-bottom: 54px; }
+  .home-vision-en { font-size: 10px; line-height: 1.8; }
+  .home-vision h2 { margin-bottom: 38px; font-size: clamp(34px, 10.5vw, 50px); letter-spacing: .02em; }
+  .home-vision-lead { font-size: 17px; }
+  .home-vision-link { justify-content: stretch; }
+  .home-vision-link .outline-link { width: 100%; }
+  .home-salons { padding: 100px 20px 120px; }
+  .home-salons-heading { margin-bottom: 75px; grid-template-columns: 1fr; gap: 28px; align-items: start; }
+  .home-salons-heading .section-index { margin-bottom: 22px; }
+  .home-salons-heading h2 { font-size: clamp(40px, 12vw, 58px); }
+  .home-salon-showcase { gap: 105px; }
+  .home-salon-feature { min-height: auto; }
+  .home-salon-feature figure, .home-salon-feature--reverse figure { width: 100%; height: 62svh; min-height: 450px; margin: 0; }
+  .home-salon-feature figure img { object-position: center; }
+  .home-salon-panel, .home-salon-feature--reverse .home-salon-panel { position: relative; top: auto; right: auto; left: auto; width: 92%; margin: -54px 0 0 auto; padding: 40px 28px; transform: none; }
+  .home-salon-feature--reverse .home-salon-panel { margin: -54px auto 0 0; }
+  .home-salon-meta { margin-bottom: 28px; }
+  .home-salon-panel h3 { font-size: clamp(42px, 13vw, 62px); }
+  .home-salons-more { margin-top: 75px; }
+  .home-salons-more .outline-link { width: 100%; }
+  .preview-head { grid-template-columns: 1fr; gap: 50px; }
   .preview-business { padding: 90px 20px 170px; }
   .preview-head h2 { font-size: clamp(64px, 21vw, 100px); }
   .image-ribbon { margin-top: 54px; grid-template-columns: 1fr 1fr; }
@@ -352,4 +418,10 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline
   .footer-grid .copyright { white-space: normal; align-self: end; }
 }
 
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+  .salon-hero-slide, .salon-hero-scroll::after { animation: none !important; }
+  .salon-hero-slide--park { opacity: 1; }
+  .salon-hero-slide--original { opacity: 0; }
+}

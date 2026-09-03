@@ -8,9 +8,9 @@ const nav = [
   ['COMPANY', '/company'],
 ] as const;
 
-export function SiteHeader() {
+export function SiteHeader({ home = false }: { home?: boolean }) {
   return (
-    <header className="site-header">
+    <header className={`site-header${home ? ' site-header--home' : ''}`}>
       <Link href="/" className="wordmark" aria-label="PARADISE8 ホーム">
         <span>P</span>ARADISE<span>8</span>
       </Link>

@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const contacts = [
   {
-    type: 'RECRUIT', name: '#01 ORIGINAL 採用情報',
+    type: 'RECRUIT', name: 'PARADISE8の採用情報',
     note: '募集状況、応募条件、サロン見学について。最新情報は求人ページをご確認ください',
-    actions: [['最新の採用情報を見る', 'https://work.beauty.hotpepper.jp/WC00022366/WS0000053513/', '↗']],
+    actions: [['最新の採用情報を見る', 'https://work.beauty.hotpepper.jp/WC00022366/', '↗']],
   },
   {
     type: 'HAIR SALON', name: '#01 ORIGINAL',

@@ -16,7 +16,7 @@ const timeline = [
   ['1995', '古着が好きになり、ミシンを使って自分の服をカスタマイズ。自分の手で“オリジナル”を生み出す面白さを知る。'],
   ['2001', '地元の美容室に就職。通信で美容師資格を取得し、技術コンテストにも挑戦。'],
   ['2003', '技術コンテストへの挑戦を重ね、美容師としての表現を磨く。'],
-  ['2007', '日立市で最初の美容室「OttO」を立ち上げる。'],
+  ['2007', '日立市に自身初の美容室「OttO」を立ち上げる。'],
   ['2012', '2店舗目「OttO SECOND」を出店。仕事と遊びが交わる空間づくりを始める。'],
   ['2015', '店と働き方を見つめ直す転機を迎え、次の形を模索する。'],
   ['2017', '美容室「#01」とOttO ANTIQUESをオープン。美容、古着、アンティークの世界を一つにつなぐ。'],
@@ -33,7 +33,7 @@ export default function StoryPage() {
         eyebrow="FOUNDER'S STORY"
         tone="orange"
         title={<>MAKE IT.<br /><em>MEAN IT.</em></>}
-        copy="美容室から始まった一歩は、古着、アンティーク、食、訪問美容へ。すべては“日立にお洒落な人を増やしたい”という真っ直ぐな衝動から始まりました。"
+        copy="美容・古着・アンティークを結んだ原点から、食、訪問美容へ。好きなものと向き合いながら、活動の幅を広げてきました。"
       />
 
       <section className="founder-profile content-section">
@@ -61,7 +61,7 @@ export default function StoryPage() {
       <section className="timeline-section content-section">
         <div className="timeline-heading">
           <p className="section-index">HISTORY</p>
-          <h2>雑貨も家具も古着もヘアも。<br />“かけ算”でキマりまくる。</h2>
+          <h2>好きなことを、<br />本気で重ねてきた。</h2>
           <figure><Image src="/portrait-team.jpg" alt="PARADISE8をつくる人" width={1200} height={1600} sizes="(max-width: 800px) 82vw, 29vw" /></figure>
         </div>
         <ol className="timeline">

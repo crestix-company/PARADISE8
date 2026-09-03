@@ -101,7 +101,7 @@ export default function RecruitPage() {
         <p>まずは、店と人を見に来てください。</p>
         <h2>見学・応募を<br />お待ちしています。</h2>
         <div className="entry-actions">
-          <a href="https://work.beauty.hotpepper.jp/WC00022366/WS0000053513/" target="_blank" rel="noreferrer" className="solid-link">現在の募集情報を見る <span>↗</span></a>
+          <a href="https://work.beauty.hotpepper.jp/WC00022366/" target="_blank" rel="noreferrer" className="solid-link">現在の募集情報を見る <span>↗</span></a>
         </div>
         <Link href="/contact" className="small-text-link">店舗・ブランドへのお問い合わせはこちら →</Link>
       </section>

@@ -4,7 +4,7 @@ import { SiteMotion } from '@/components/site-motion';
 
 const siteTitle = '株式会社PARADISE8｜CREATE YOUR PARADISE.';
 const siteDescription = '茨城県日立市を拠点に、美容・ヴィンテージ・飲食・訪問美容を展開する株式会社PARADISE8。企業情報と採用情報をご案内します。';
-const siteUrl = 'https://paradise8-hitachi.s-nishita.chatgpt.site';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://paradise8-hitachi.s-nishita.chatgpt.site';
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   title: siteTitle,
   description: siteDescription,
   applicationName: '株式会社PARADISE8',
-  alternates: { canonical: '/' },
-  icons: { icon: '/icon.png', apple: '/icon.png' },
+  alternates: { canonical: siteUrl },
+  icons: { icon: `${siteUrl}/icon.png`, apple: `${siteUrl}/icon.png` },
   openGraph: {
     type: 'website',
     locale: 'ja_JP',
-    url: '/',
+    url: siteUrl,
     siteName: '株式会社PARADISE8',
     title: siteTitle,
     description: siteDescription,

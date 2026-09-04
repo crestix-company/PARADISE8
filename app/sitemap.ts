@@ -1,6 +1,8 @@
 import type { MetadataRoute } from 'next';
 
-const siteUrl = 'https://paradise8-hitachi.s-nishita.chatgpt.site';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://paradise8-hitachi.s-nishita.chatgpt.site';
+
+export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return ['', '/about', '/business', '/story', '/company', '/contact'].map((path) => ({

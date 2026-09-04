@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
@@ -78,9 +79,15 @@ export default function BusinessPage() {
               <h2>{brand.name}</h2>
               <p className="brand-description">{brand.description}</p>
               <ul>{brand.info.map(item => <li key={item}>{item}</li>)}</ul>
-              <a href={brand.href} target={brand.href.startsWith('http') ? '_blank' : undefined} rel={brand.href.startsWith('http') ? 'noreferrer' : undefined} className="text-link">
-                {brand.cta} <span>{brand.href.startsWith('http') ? '↗' : '→'}</span>
-              </a>
+              {brand.href.startsWith('http') ? (
+                <a href={brand.href} target="_blank" rel="noreferrer" className="text-link">
+                  {brand.cta} <span>↗</span>
+                </a>
+              ) : (
+                <Link href={brand.href} className="text-link">
+                  {brand.cta} <span>→</span>
+                </Link>
+              )}
             </div>
           </article>
         ))}

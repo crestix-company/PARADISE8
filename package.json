@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:pages": "GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/PARADISE8 NEXT_PUBLIC_SITE_URL=https://crestix-company.github.io/PARADISE8 next build --webpack",
+    "verify:pages": "node scripts/verify-pages-build.mjs",
     "start": "vinext start",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },

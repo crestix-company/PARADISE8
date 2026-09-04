@@ -4,7 +4,11 @@ import { SiteMotion } from '@/components/site-motion';
 
 const siteTitle = '株式会社PARADISE8｜CREATE YOUR PARADISE.';
 const siteDescription = '茨城県日立市を拠点に、美容・ヴィンテージ・飲食・訪問美容を展開する株式会社PARADISE8。企業情報と採用情報をご案内します。';
+const socialTitle = '株式会社PARADISE8';
+const socialDescription = '茨城県日立市から、美容・ヴィンテージ・食・訪問美容を育てるチームです。';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://paradise8-hitachi.s-nishita.chatgpt.site';
+const squareSocialImage = `${siteUrl}/og-paradise8-square-v2.png`;
+const landscapeSocialImage = `${siteUrl}/og-paradise8-v2.png`;
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -35,15 +39,18 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     url: siteUrl,
     siteName: '株式会社PARADISE8',
-    title: siteTitle,
-    description: siteDescription,
-    images: [{ url: `${siteUrl}/og.png`, width: 1200, height: 630, alt: 'CREATE YOUR PARADISE. — PARADISE8' }],
+    title: socialTitle,
+    description: socialDescription,
+    images: [
+      { url: squareSocialImage, width: 1254, height: 1254, alt: '海を望む#01 park hair&∞のサロン空間', type: 'image/png' },
+      { url: landscapeSocialImage, width: 1200, height: 630, alt: 'PARADISE8 — HITACHI / IBARAKI', type: 'image/png' },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: siteTitle,
-    description: siteDescription,
-    images: [`${siteUrl}/og.png`],
+    title: socialTitle,
+    description: socialDescription,
+    images: [landscapeSocialImage],
   },
 };
 

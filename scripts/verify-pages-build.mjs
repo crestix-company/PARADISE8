@@ -15,7 +15,8 @@ const requiredFiles = [
   'robots.txt',
   'sitemap.xml',
   'salon-park-hero.jpg',
-  'og.png',
+  'og-paradise8-square-v2.png',
+  'og-paradise8-v2.png',
   'icon.png',
 ];
 
@@ -85,6 +86,9 @@ const recruitHtml = await readFile(path.join(outputDir, 'recruit/index.html'), '
 
 if (!homeHtml.includes('CREATE YOUR') || !homeHtml.includes('PARADISE.')) {
   failures.push('index.html: expected hero copy was not rendered');
+}
+if (!homeHtml.includes('og-paradise8-square-v2.png') || !homeHtml.includes('og-paradise8-v2.png')) {
+  failures.push('index.html: refreshed social preview images are missing');
 }
 if (!recruitHtml.includes('https://01park-otto.com/recruit/')) {
   failures.push('recruit/index.html: expected external recruit destination is missing');

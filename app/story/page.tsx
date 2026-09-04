@@ -32,13 +32,15 @@ export default function StoryPage() {
       <PageIntro
         index="03"
         eyebrow="FOUNDER'S STORY"
-        tone="orange"
         title={<>MAKE IT.<br /><em>MEAN IT.</em></>}
         copy="美容・古着・アンティークを結んだ原点から、食、訪問美容へ。好きなものと向き合いながら、活動の幅を広げてきました。"
+        image="/hero-founder.jpg"
+        imageAlt="PARADISE8代表 中川雄貴"
+        imagePosition="50% 50%"
       />
 
       <section className="founder-profile content-section">
-        <figure className="founder-photo"><Image src="/hero-founder.jpg" alt="PARADISE8のポートレート" width={1200} height={1600} sizes="(max-width: 800px) 100vw, 48vw" /></figure>
+        <figure className="founder-photo"><Image src="/salon-original.jpg" alt="PARADISE8の原点である美容室#01 ORIGINAL" width={1200} height={1600} sizes="(max-width: 800px) 100vw, 48vw" /></figure>
         <div className="founder-copy">
           <p className="section-index">YUKI NAKAGAWA / FOUNDER & CRAFTSMAN</p>
           <h2><span className="type-line">お客様より、</span><span className="type-line">お客様の髪に</span><span className="type-line">こだわる。</span></h2>
@@ -75,7 +77,7 @@ export default function StoryPage() {
         <h2><span className="type-line">次の物語を、</span><span className="type-phrase">一緒に</span><wbr /><span className="type-phrase">つくろう。</span></h2>
         <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">採用情報を見る <span>↗</span></Link>
       </section>
-      <SiteFooter />
+      <SiteFooter compact />
     </main>
   );
 }

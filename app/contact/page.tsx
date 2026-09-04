@@ -61,9 +61,11 @@ export default function ContactPage() {
       <PageIntro
         index="06"
         eyebrow="CONTACT"
-        tone="orange"
         title={<>LET&apos;S TALK.<br /><em>LET&apos;S CREATE.</em></>}
         copy="採用情報から、各店舗の予約・商品のお問い合わせまで。目的に合う公開窓口をご利用ください。"
+        image="/contact-salon.jpg"
+        imageAlt="#01 ORIGINALのサロン空間"
+        imagePosition="58% 50%"
       />
 
       <section className="contact-guide content-section">

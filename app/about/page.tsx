@@ -27,6 +27,9 @@ export default function AboutPage() {
         eyebrow="ABOUT US"
         title={<>THE FIRST STEP<br /><em>HAS NO LIMIT.</em></>}
         copy="0から勇気を持って1を踏み出す。私たちは美容から始まった感性を、暮らしと地域の新しい価値へ広げています。"
+        image="/about-visit-beauty.jpg"
+        imageAlt="訪問先で髪を整えるPARADISE8の美容師"
+        imagePosition="52% 50%"
       />
 
       <section className="about-origin content-section">
@@ -71,7 +74,7 @@ export default function AboutPage() {
         <p>3倍遊んで絆を深め、合わせ鏡に映るDREAM TEAMをつくる。5倍働いて会社と社会に貢献し、感謝を持って恩返しする。</p>
         <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="outline-link">#01 park hair&amp;∞で働く <span>↗</span></Link>
       </section>
-      <SiteFooter />
+      <SiteFooter compact />
     </main>
   );
 }

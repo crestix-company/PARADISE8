@@ -41,7 +41,7 @@ const brands = [
     href: 'https://maruichiotton.com/h/', cta: '公式サイト',
   },
   {
-    number: '06', type: 'HOME VISIT BEAUTY', name: '訪問美容 Shana', image: '/shana-logo.jpg',
+    number: '06', type: 'HOME VISIT BEAUTY', name: '訪問美容 Shana', image: '/visit-beauty.jpg',
     description: '「髪型ひとつで、毎日がもっと楽しく」を掲げる訪問美容ブランド。',
     info: ['サービス詳細・受付情報は公開準備中です'],
     href: '/contact', cta: '公開中の窓口情報を見る',
@@ -55,9 +55,12 @@ export default function BusinessPage() {
       <PageIntro
         index="02"
         eyebrow="BUSINESS / BRANDS"
-        tone="dark"
+        tone="ink"
         title={<>ONE TEAM.<br /><em>MANY CULTURES.</em></>}
         copy="美容、ヴィンテージ、食、訪問ケア。違うように見える仕事をつなぐのは、人の毎日を少し面白く、少し豊かにしたいという同じ想いです。"
+        image="/salon-original-wide.jpg"
+        imageAlt="#01 ORIGINALのサロン空間"
+        imagePosition="48% 50%"
       />
       <section className="brand-intro content-section">
         <p className="section-index">OUR BRANDS & PROJECTS</p>
@@ -68,7 +71,7 @@ export default function BusinessPage() {
         {brands.map((brand, index) => (
           <article className={`brand-card brand-card--${index % 2 ? 'reverse' : 'normal'}`} key={brand.name}>
             <figure>
-              <Image className={brand.image === '/shana-logo.jpg' ? 'brand-image brand-image--logo' : 'brand-image'} src={brand.image} alt={`${brand.name}のイメージ`} width={1600} height={1200} sizes="(max-width: 800px) 100vw, 55vw" />
+              <Image className="brand-image" src={brand.image} alt={`${brand.name}のイメージ`} width={1600} height={1200} sizes="(max-width: 800px) 100vw, 55vw" />
             </figure>
             <div className="brand-card-copy">
               <p className="brand-meta"><span>{brand.number}</span>{brand.type}</p>
@@ -76,7 +79,7 @@ export default function BusinessPage() {
               <p className="brand-description">{brand.description}</p>
               <ul>{brand.info.map(item => <li key={item}>{item}</li>)}</ul>
               <a href={brand.href} target={brand.href.startsWith('http') ? '_blank' : undefined} rel={brand.href.startsWith('http') ? 'noreferrer' : undefined} className="text-link">
-                {brand.cta} <span>↗</span>
+                {brand.cta} <span>{brand.href.startsWith('http') ? '↗' : '→'}</span>
               </a>
             </div>
           </article>

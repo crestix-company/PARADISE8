@@ -10,9 +10,9 @@ export default function Home() {
       <SiteHeader home />
 
       <section className="salon-hero" aria-labelledby="hero-title">
-        <div className="salon-hero-slides" role="img" aria-label="海を望む#01 parkと#01 ORIGINALのサロン空間">
-          <Image className="salon-hero-slide salon-hero-slide--park" src="/salon-park-hero.jpg" alt="" width={1600} height={1200} sizes="100vw" priority />
-          <Image className="salon-hero-slide salon-hero-slide--original" src="/salon-original-wide.jpg" alt="" width={1600} height={1200} sizes="100vw" priority />
+        <div className="salon-hero-media" role="img" aria-label="海を望む#01 park hair&∞のサロン空間">
+          <Image className="salon-hero-image salon-hero-image--desktop" src="/salon-park-hero.jpg" alt="" width={1600} height={1200} sizes="100vw" priority />
+          <Image className="salon-hero-image salon-hero-image--mobile" src="/salon-park-portrait.jpg" alt="" width={1108} height={1477} sizes="100vw" priority />
         </div>
         <div className="salon-hero-overlay" aria-hidden="true" />
         <div className="salon-hero-copy">
@@ -21,8 +21,8 @@ export default function Home() {
           <p className="salon-hero-jp">美容の可能性を、もっと自由に。</p>
         </div>
         <div className="salon-hero-signature" aria-label="PARADISE8のサロン">
-          <span>01 / #01 ORIGINAL</span>
-          <span>02 / #01 park hair&amp;∞</span>
+          <span>01 / #01 park hair&amp;∞</span>
+          <span>02 / #01 ORIGINAL</span>
         </div>
         <a className="salon-hero-scroll" href="#about" aria-label="次のセクションへ移動">SCROLL</a>
       </section>
@@ -82,19 +82,22 @@ export default function Home() {
           <figure><Image src="/otto-antiques.jpg" alt="OttO ANTIQUESの店内" width={1600} height={1200} sizes="(max-width: 800px) 50vw, 27vw" /><figcaption>02 / ANTIQUES</figcaption></figure>
           <figure><Image src="/otton-dining.jpg" alt="まるいち おっとんの料理" width={1600} height={1200} sizes="37vw" /><figcaption>03 / FOOD</figcaption></figure>
         </div>
-        <Link href="/business" className="round-link" aria-label="事業とブランドを見る"><span>OUR<br />BUSINESS</span><b>↗</b></Link>
+        <div className="preview-business-link"><Link href="/business" className="outline-link outline-link--light">事業とブランドを見る <span>→</span></Link></div>
       </section>
 
       <section className="recruit-teaser" id="recruit">
-        <p className="section-index">04 / RECRUIT</p>
-        <div className="recruit-word">PLAY 3×<br /><span>WORK 5×</span></div>
-        <div className="recruit-copy">
-          <h2><span className="type-line">美容師という仕事を、</span><span className="type-line">もっと楽しめる場所へ。</span></h2>
-          <p>3倍遊んで絆を深め、5倍働いて社会に恩返しする。技術だけでなく、人としての可能性まで広げられるDREAM TEAMをつくろう。</p>
-          <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">採用情報を見る <span>↗</span></Link>
+        <figure className="recruit-visual"><Image src="/salon-park-wide.jpg" alt="#01 park hair&∞のサロン空間" width={1477} height={1108} sizes="(max-width: 960px) 100vw, 50vw" /></figure>
+        <div className="recruit-content">
+          <p className="section-index">04 / RECRUIT</p>
+          <p className="recruit-mantra">PLAY 3× / WORK 5×</p>
+          <div className="recruit-copy">
+            <h2><span className="type-line">美容師という仕事を、</span><span className="type-line">もっと楽しめる場所へ。</span></h2>
+            <p>3倍遊んで絆を深め、5倍働いて社会に恩返しする。技術だけでなく、人としての可能性まで広げられるDREAM TEAMをつくろう。</p>
+            <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">#01 park hair&amp;∞ 採用情報 <span>↗</span></Link>
+          </div>
         </div>
       </section>
-      <SiteFooter />
+      <SiteFooter compact />
     </main>
   );
 }

@@ -29,9 +29,10 @@ export default function CompanyPage() {
         eyebrow="COMPANY"
         title={<>ROOTED HERE.<br /><em>BOUNDLESS AHEAD.</em></>}
         copy="海とものづくりの街、茨城県日立市から。好きなことを本気で仕事にし、仲間とともに新しい地域の景色をつくっていきます。"
+        image="/paradise-garage.jpg"
+        imageAlt="日立市東成沢町のPARADISE GARAGE外観"
+        imagePosition="50% 52%"
       />
-
-      <section className="company-image"><Image src="/paradise-garage.jpg" alt="日立市東成沢町のPARADISE GARAGE外観" width={1800} height={1200} sizes="100vw" /></section>
 
       <section className="company-overview content-section">
         <div className="company-overview-heading">
@@ -50,15 +51,15 @@ export default function CompanyPage() {
           <p>〒316-0034<br />茨城県日立市東成沢町1丁目6番14号</p>
           <a href="https://www.google.com/maps/search/?api=1&query=%E8%8C%A8%E5%9F%8E%E7%9C%8C%E6%97%A5%E7%AB%8B%E5%B8%82%E6%9D%B1%E6%88%90%E6%B2%A2%E7%94%BA1-6-14" target="_blank" rel="noreferrer" className="outline-link">GOOGLE MAP <span>↗</span></a>
         </div>
-        <figure><Image src="/salon-park.jpg" alt="海を望む#01 parkのサロン空間" width={1600} height={1200} sizes="(max-width: 800px) 100vw, 60vw" /></figure>
+        <figure><Image src="/salon-reception.jpg" alt="#01 park hair&∞の受付とサロン空間" width={1600} height={1200} sizes="(max-width: 800px) 100vw, 60vw" /></figure>
       </section>
 
       <section className="company-links content-section">
         <p className="section-index">EXPLORE MORE</p>
         <div>
-          <Link href="/about">理念を知る <span>ABOUT ↗</span></Link>
-          <Link href="/story">歩みを知る <span>STORY ↗</span></Link>
-          <Link href="/business">事業を知る <span>BUSINESS ↗</span></Link>
+          <Link href="/about">理念を知る <span>ABOUT →</span></Link>
+          <Link href="/story">歩みを知る <span>STORY →</span></Link>
+          <Link href="/business">事業を知る <span>BUSINESS →</span></Link>
         </div>
       </section>
       <SiteFooter />

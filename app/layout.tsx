@@ -5,6 +5,23 @@ const siteTitle = '株式会社PARADISE8｜CREATE YOUR PARADISE.';
 const siteDescription = '茨城県日立市を拠点に、美容・ヴィンテージ・飲食・訪問美容を展開する株式会社PARADISE8。企業情報と採用情報をご案内します。';
 const siteUrl = 'https://paradise8-hitachi.s-nishita.chatgpt.site';
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: '株式会社PARADISE8',
+  url: siteUrl,
+  logo: `${siteUrl}/icon.png`,
+  description: siteDescription,
+  address: {
+    '@type': 'PostalAddress',
+    postalCode: '316-0034',
+    addressRegion: '茨城県',
+    addressLocality: '日立市',
+    streetAddress: '東成沢町1丁目6番14号',
+    addressCountry: 'JP',
+  },
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
@@ -32,7 +49,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ja">
-      <body>{children}</body>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        {children}
+      </body>
     </html>
   );
 }

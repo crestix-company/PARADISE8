@@ -1,13 +1,18 @@
 import Link from 'next/link';
 import { RECRUIT_URL } from '@/lib/links';
 
-export function SiteFooter() {
+export function SiteFooter({ compact = false }: { compact?: boolean }) {
   return (
     <footer className="site-footer">
-      <div className="footer-top">
-        <p className="footer-kicker">READY TO CREATE YOUR PARADISE?</p>
-        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="footer-recruit">JOIN OUR<br />DREAM TEAM <span>↗</span></Link>
-      </div>
+      {!compact && (
+        <div className="footer-top">
+          <div>
+            <p className="footer-kicker">RECRUIT / #01 PARK HAIR&amp;∞</p>
+            <h2>美容師という仕事を、<br />もっと楽しめる場所へ。</h2>
+          </div>
+          <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="footer-recruit"><span>VIEW RECRUIT</span><b>↗</b></Link>
+        </div>
+      )}
       <div className="footer-grid">
         <Link href="/" className="footer-logo">PARADISE<span>8</span></Link>
         <div>

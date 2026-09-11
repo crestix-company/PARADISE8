@@ -10,6 +10,7 @@ const nav = [
   ['ABOUT', '/about'],
   ['BUSINESS', '/business'],
   ['STORY', '/story'],
+  ['MESSAGE', '/message'],
   ['COMPANY', '/company'],
   ['CONTACT', '/contact'],
 ] as const;
@@ -89,7 +90,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
           {nav.map(([label, href], index) => (
             <Link href={href} key={href} onClick={closeMenu} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}><b>0{index + 1}</b>{label}<span>→</span></Link>
           ))}
-          <Link href={RECRUIT_URL} onClick={closeMenu} target="_blank" rel="noreferrer"><b>06</b>RECRUIT<span>↗</span></Link>
+          <Link href={RECRUIT_URL} onClick={closeMenu} target="_blank" rel="noreferrer"><b>0{nav.length + 1}</b>RECRUIT<span>↗</span></Link>
         </nav>
       </details>
     </header>

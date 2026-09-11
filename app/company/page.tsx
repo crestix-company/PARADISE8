@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 
 const company = [
   ['会社名', '株式会社PARADISE8'],
+  ['代表取締役', '中川雄貴'],
+  ['取締役', '堤耕助'],
   ['法人番号指定年月', '2026年4月'],
   ['法人番号', '4050001058260'],
   ['所在地', '〒316-0034 茨城県日立市東成沢町1丁目6番14号'],
@@ -58,6 +60,7 @@ export default function CompanyPage() {
         <p className="section-index">EXPLORE MORE</p>
         <div>
           <Link href="/about">理念を知る <span>ABOUT →</span></Link>
+          <Link href="/message">役員挨拶を読む <span>MESSAGE →</span></Link>
           <Link href="/story">歩みを知る <span>STORY →</span></Link>
           <Link href="/business">事業を知る <span>BUSINESS →</span></Link>
         </div>

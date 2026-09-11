@@ -15,6 +15,7 @@ const requiredFiles = [
   'about/index.html',
   'business/index.html',
   'story/index.html',
+  'message/index.html',
   'company/index.html',
   'contact/index.html',
   'recruit/index.html',
@@ -22,6 +23,8 @@ const requiredFiles = [
   'robots.txt',
   'sitemap.xml',
   'salon-park-hero.jpg',
+  'hero-founder.jpg',
+  'portrait-team.jpg',
   'og-paradise8-square-v2.png',
   'og-paradise8-v2.png',
   'icon.png',
@@ -93,6 +96,38 @@ for (const htmlFile of htmlFiles) {
 const homeHtml = await readFile(path.join(outputDir, 'index.html'), 'utf8');
 const recruitHtml = await readFile(path.join(outputDir, 'recruit/index.html'), 'utf8');
 const businessHtml = await readFile(path.join(outputDir, 'business/index.html'), 'utf8');
+const messageHtml = await readFile(path.join(outputDir, 'message/index.html'), 'utf8');
+const storyHtml = await readFile(path.join(outputDir, 'story/index.html'), 'utf8');
+const leadershipSource = await readFile(path.resolve('lib/leadership.ts'), 'utf8');
+const paragraphGroups = [...leadershipSource.matchAll(/paragraphs:\s*\[([\s\S]*?)\],/g)]
+  .map((group) => [...group[1].matchAll(/'([^']+)'/g)].map((match) => match[1]));
+const executives = [
+  { id: 'president-message', name: '中川雄貴', role: '代表取締役', photo: 'hero-founder.jpg', paragraphs: 12 },
+  { id: 'director-message', name: '堤耕助', role: '取締役', photo: 'portrait-team.jpg', paragraphs: 8 },
+];
+
+executives.forEach((executive, index) => {
+  const section = (messageHtml.match(new RegExp(`<section[^>]*id="${executive.id}"[^>]*>([\\s\\S]*?)</section>`))?.[1] ?? '').replace(/<!--[\s\S]*?-->/g, '');
+  const paragraphs = paragraphGroups[index] ?? [];
+  if (!section.includes(`alt="${executive.role} ${executive.name}"`) || !section.includes(`${basePath}/${executive.photo}`)) {
+    failures.push(`message/index.html: incorrect portrait/name pairing for ${executive.name}`);
+  }
+  if (!section.includes(`${executive.role}挨拶`) || paragraphs.length !== executive.paragraphs || paragraphs.some((paragraph) => !section.includes(paragraph))) {
+    failures.push(`message/index.html: incomplete greeting for ${executive.name}`);
+  }
+  if (!messageHtml.includes(`href="#${executive.id}"`)) {
+    failures.push(`message/index.html: missing jump link for ${executive.name}`);
+  }
+});
+if (!messageHtml.includes('As long as there is hope, there is a possibility.') || !messageHtml.includes('希望ある限り、可能性がある。')) {
+  failures.push('message/index.html: missing closing motto');
+}
+if (storyHtml.includes('portrait-team.jpg') || storyHtml.includes('<time>2007</time>') || !storyHtml.includes('<time>2008</time>')) {
+  failures.push('story/index.html: history still has the director portrait or an outdated founding year');
+}
+if (!(await readFile(path.join(outputDir, 'sitemap.xml'), 'utf8')).includes(`${basePath}/message`)) {
+  failures.push('sitemap.xml: new message page is missing');
+}
 
 if ((businessHtml.match(/<h2 class="brand-logo-heading">/g) ?? []).length !== businessLogos.length) {
   failures.push('business/index.html: expected five supplied logos as brand headings');
@@ -102,11 +137,14 @@ for (const logo of businessLogos) {
     failures.push(`business/index.html: missing supplied logo ${logo}`);
   }
 }
-for (const page of ['index.html', 'about/index.html', 'business/index.html', 'story/index.html', 'company/index.html', 'contact/index.html']) {
+for (const page of ['index.html', 'about/index.html', 'business/index.html', 'story/index.html', 'message/index.html', 'company/index.html', 'contact/index.html']) {
   const html = await readFile(path.join(outputDir, page), 'utf8');
   const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0] ?? '';
   if (!header.includes(`${basePath}/logos/paradise8.jpg`) || !header.includes('PARADISE8 ホーム')) {
     failures.push(`${page}: supplied company logo or accessible home link is missing from the header`);
+  }
+  if (!header.includes(`href="${basePath}/message/"`)) {
+    failures.push(`${page}: message page is missing from navigation`);
   }
 }
 

@@ -23,6 +23,7 @@ export function SiteFooter({ compact = false }: { compact?: boolean }) {
           <Link href="/about">ABOUT</Link>
           <Link href="/business">BUSINESS</Link>
           <Link href="/story">STORY</Link>
+          <Link href="/message">MESSAGE</Link>
           <Link href={RECRUIT_URL} target="_blank" rel="noreferrer">RECRUIT</Link>
           <Link href="/company">COMPANY</Link>
           <Link href="/contact">CONTACT</Link>

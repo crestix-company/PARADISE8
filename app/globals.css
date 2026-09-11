@@ -67,25 +67,25 @@ button, summary { font: inherit; }
   border-color: var(--line);
   backdrop-filter: blur(14px);
 }
-.site-header--home.site-header--scrolled .wordmark i { color: var(--bronze); }
 .wordmark {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   width: max-content;
-  font-family: var(--serif);
   line-height: 1;
-  letter-spacing: -0.04em;
 }
-.wordmark b { font-size: 24px; font-weight: 600; }
-.wordmark i { margin-left: 2px; color: var(--bronze); font-size: 32px; font-weight: 500; }
-.site-header--home .wordmark i { color: #e4d1b6; }
-.wordmark small {
-  margin-left: 14px;
-  font-family: var(--sans);
-  font-size: 8px;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: .18em;
+.wordmark:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 50%; }
+.supplied-logo {
+  position: relative;
+  display: block;
+  flex: none;
+  overflow: hidden;
+  max-width: 100%;
+}
+.supplied-logo img { position: absolute; max-width: none; }
+.company-logo {
+  width: 66px;
+  border-radius: 50%;
+  background: #fff;
 }
 .desktop-nav { display: flex; align-items: center; gap: clamp(18px, 2vw, 34px); }
 .desktop-nav a,
@@ -606,6 +606,13 @@ button, summary { font: inherit; }
   line-height: .98;
   letter-spacing: -.04em;
 }
+.brand-card-copy .brand-logo-heading { font-size: 0; line-height: 0; letter-spacing: normal; }
+.brand-logo-heading .supplied-logo { mix-blend-mode: multiply; }
+.brand-logo--original { width: 198px; }
+.brand-logo--park { width: 258px; }
+.brand-logo--antiques { width: 272px; }
+.brand-logo--clothing { width: 272px; }
+.brand-logo--otton { width: 136px; }
 .brand-description { max-width: 590px; color: #4f4a43; font-family: var(--jp-serif); font-size: 15px; line-height: 2.05; }
 .brand-card-copy ul { margin-top: 34px; padding: 24px 0 0; border-top: 1px solid var(--line); list-style: none; }
 .brand-card-copy li { color: #686158; font-size: 11px; line-height: 1.9; }
@@ -666,6 +673,7 @@ button, summary { font: inherit; }
 .timeline li { display: grid; grid-template-columns: 100px 1fr; gap: 38px; padding: 30px 0; border-bottom: 1px solid var(--line); }
 .timeline time { color: var(--bronze); font-family: var(--serif); font-size: 25px; line-height: 1.3; }
 .timeline li p { color: #514c45; font-size: 13px; line-height: 2; }
+.timeline-sentence { display: block; }
 .story-next {
   display: grid;
   grid-template-columns: .72fr 1.15fr .72fr;
@@ -968,9 +976,7 @@ button, summary { font: inherit; }
     gap: 0;
     padding: 0 20px;
   }
-  .wordmark b { font-size: 20px; }
-  .wordmark i { font-size: 27px; }
-  .wordmark small { display: none; }
+  .company-logo { width: 56px; }
   .desktop-nav, .header-cta { display: none; }
   .mobile-menu { display: block; }
   .mobile-menu summary {

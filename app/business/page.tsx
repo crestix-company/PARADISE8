@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { SuppliedLogo } from '@/components/supplied-logo';
+import { brandLogos } from '@/lib/brand-logos';
 
 export const metadata: Metadata = {
   title: '事業・ブランド｜株式会社PARADISE8',
@@ -13,30 +15,35 @@ export const metadata: Metadata = {
 const brands = [
   {
     number: '01', type: 'HAIR SALON', name: '#01 ORIGINAL', image: '/salon-original.jpg',
+    logo: brandLogos.original, logoClass: 'brand-logo--original',
     description: '骨格・髪質・ダメージ・ファッションまで見つめ、一人ひとりだけのスタイルをつくる。セニングに頼らないカット、デザインカラー、髪質改善を追求するサロンです。',
     info: ['茨城県日立市鹿島町1-14-7 永井ビル1F', '平日 10:00–19:00 / 土日祝 9:00–18:00', '火曜定休'],
     href: 'https://beauty.hotpepper.jp/slnH000380119/', cta: '予約・サロン情報',
   },
   {
     number: '02', type: 'HAIR SALON', name: '#01 park hair&∞', image: '/salon-park.jpg',
+    logo: brandLogos.park, logoClass: 'brand-logo--park',
     description: '工場跡をリノベーションした、海を望むサロン。傷ませない技術と、自宅でも扱いやすい再現性を大切に、未来の髪まで考えた提案を行います。',
     info: ['茨城県日立市東成沢町1-6-14 2F', 'TEL 0294-51-4777', '最新の営業時間・営業日は公式サイトでご確認ください'],
     href: 'https://01park-otto.com/', cta: '公式サイト',
   },
   {
     number: '03', type: 'ANTIQUES', name: 'OttO ANTIQUES', image: '/otto-antiques.jpg',
+    logo: brandLogos.antiques, logoClass: 'brand-logo--antiques',
     description: 'アメリカを中心に集めた、家具・照明・看板・雑貨。古いものが持つ物語と、今の暮らしをつなぐ“一点もの”との出会いを提案します。',
     info: ['茨城県日立市東成沢町1-6-14', '10:00–19:00', 'TEL 0294-51-3636'],
     href: 'https://ottoantiques.jp/', cta: 'オンラインストア',
   },
   {
     number: '04', type: 'VINTAGE CLOTHING', name: '08 old clothing', image: '/old-clothing.jpg',
+    logo: brandLogos.clothing, logoClass: 'brand-logo--clothing',
     description: '1990年代を中心に、背景まで面白い古着をセレクト。ヴィンテージを「文化」として気軽に楽しめる、ガレージのようなショップです。',
     info: ['茨城県日立市東成沢町1-6-14', '11:00–20:00 / 火曜定休', 'TEL 070-2384-9550'],
     href: 'https://oldclothes08.base.shop/', cta: 'オンラインストア',
   },
   {
     number: '05', type: 'TONKATSU / DINING', name: 'まるいち おっとん', image: '/otton-dining.jpg',
+    logo: brandLogos.otton, logoClass: 'brand-logo--otton',
     description: '全国から選び抜いた素材を、まっすぐおいしく。とんかつを中心に、食事の時間そのものを楽しめる一皿と空間を届けます。',
     info: ['茨城県日立市弁天町1-10-11 N1ビル102', '昼 11:00–14:00 / 夜営業あり', 'TEL 0294-47-9647'],
     href: 'https://maruichiotton.com/h/', cta: '公式サイト',
@@ -76,7 +83,9 @@ export default function BusinessPage() {
             </figure>
             <div className="brand-card-copy">
               <p className="brand-meta"><span>{brand.number}</span>{brand.type}</p>
-              <h2>{brand.name}</h2>
+              <h2 className={brand.logo ? 'brand-logo-heading' : undefined}>
+                {brand.logo ? <SuppliedLogo logo={brand.logo} className={brand.logoClass} /> : brand.name}
+              </h2>
               <p className="brand-description">{brand.description}</p>
               <ul>{brand.info.map(item => <li key={item}>{item}</li>)}</ul>
               {brand.href.startsWith('http') ? (

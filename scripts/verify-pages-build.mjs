@@ -3,6 +3,13 @@ import path from 'node:path';
 
 const outputDir = path.resolve('out');
 const basePath = '/PARADISE8';
+const businessLogos = [
+  'logos/01-original.png',
+  'logos/01-park.png',
+  'logos/otto-antiques.png',
+  'logos/08-old-clothes.png',
+  'logos/otton.png',
+];
 const requiredFiles = [
   'index.html',
   'about/index.html',
@@ -18,6 +25,8 @@ const requiredFiles = [
   'og-paradise8-square-v2.png',
   'og-paradise8-v2.png',
   'icon.png',
+  'logos/paradise8.jpg',
+  ...businessLogos,
 ];
 
 const exists = async (filePath) => {
@@ -83,6 +92,23 @@ for (const htmlFile of htmlFiles) {
 
 const homeHtml = await readFile(path.join(outputDir, 'index.html'), 'utf8');
 const recruitHtml = await readFile(path.join(outputDir, 'recruit/index.html'), 'utf8');
+const businessHtml = await readFile(path.join(outputDir, 'business/index.html'), 'utf8');
+
+if ((businessHtml.match(/<h2 class="brand-logo-heading">/g) ?? []).length !== businessLogos.length) {
+  failures.push('business/index.html: expected five supplied logos as brand headings');
+}
+for (const logo of businessLogos) {
+  if (!businessHtml.includes(`${basePath}/${logo}`)) {
+    failures.push(`business/index.html: missing supplied logo ${logo}`);
+  }
+}
+for (const page of ['index.html', 'about/index.html', 'business/index.html', 'story/index.html', 'company/index.html', 'contact/index.html']) {
+  const html = await readFile(path.join(outputDir, page), 'utf8');
+  const header = html.match(/<header\b[^>]*>[\s\S]*?<\/header>/)?.[0] ?? '';
+  if (!header.includes(`${basePath}/logos/paradise8.jpg`) || !header.includes('PARADISE8 ホーム')) {
+    failures.push(`${page}: supplied company logo or accessible home link is missing from the header`);
+  }
+}
 
 if (!homeHtml.includes('CREATE YOUR') || !homeHtml.includes('PARADISE.')) {
   failures.push('index.html: expected hero copy was not rendered');

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { PageIntro } from '@/components/page-intro';
@@ -11,13 +12,19 @@ export const metadata: Metadata = {
   description: '創業者・中川雄貴の原点と、2007年の独立からPARADISE8へ続く歩み。',
 };
 
-const timeline = [
+const timeline: [string, ReactNode][] = [
   ['1982', '名古屋に生まれる。3歳で茨城県日立市へ。'],
   ['1988', '陶芸を通じて、ものづくりの楽しさに触れる。'],
   ['1995', '古着が好きになり、ミシンを使って自分の服をカスタマイズ。自分の手で“オリジナル”を生み出す面白さを知る。'],
-  ['2003', '地元の美容室に就職し、通信課程で美容師資格を取得。数々の技術コンテストで受賞を重ね、全国大会で5位に入賞。'],
+  ['2003', <>
+    <span className="timeline-sentence"><span className="type-phrase">地元の美容室に就職し、</span><wbr /><span className="type-phrase">通信課程で美容師資格を取得。</span></span>
+    <span className="timeline-sentence"><span className="type-phrase">数々の技術コンテストで</span><wbr /><span className="type-phrase">受賞を重ね、</span><wbr /><span className="type-phrase">全国大会で5位に入賞。</span></span>
+  </>],
   ['2007', '日立市に自身初の美容室「OttO」を立ち上げる。'],
-  ['2012', '「OttO SECOND」と「ottoカフェ」を出店。仕事と遊びと食が交わる空間づくりを始める。'],
+  ['2012', <>
+    <span className="timeline-sentence"><span className="type-phrase">「OttO SECOND」と</span><wbr /><span className="type-phrase">「ottoカフェ」を出店。</span></span>
+    <span className="timeline-sentence"><span className="type-phrase">仕事と遊びと食が交わる</span><wbr /><span className="type-phrase">空間づくりを始める。</span></span>
+  </>],
   ['2015', '店と働き方を見つめ直す転機を迎え、次の形を模索する。'],
   ['2017', '美容室「#01」とOttO ANTIQUESをオープン。美容、古着、アンティークの世界を一つにつなぐ。'],
   ['2023', 'ミス・ユニバース・ジャパンのヘアチームに参加。'],

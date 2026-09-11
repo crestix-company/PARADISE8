@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { RECRUIT_URL } from '@/lib/links';
+import { brandLogos } from '@/lib/brand-logos';
+import { SuppliedLogo } from '@/components/supplied-logo';
 
 const nav = [
   ['ABOUT', '/about'],
@@ -68,7 +70,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
   return (
     <header className={`site-header${home ? ' site-header--home' : ''}${scrolled ? ' site-header--scrolled' : ''}`}>
       <Link href="/" className="wordmark" aria-label="PARADISE8 ホーム">
-        <b>PARADISE</b><i>8</i><small>HITACHI / IBARAKI</small>
+        <SuppliedLogo logo={brandLogos.paradise8} className="company-logo" priority />
       </Link>
       <nav className="desktop-nav" aria-label="メインナビゲーション">
         {nav.map(([label, href]) => (

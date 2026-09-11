@@ -9,6 +9,7 @@ const businessLogos = [
   'logos/otto-antiques.png',
   'logos/08-old-clothes.png',
   'logos/otton.png',
+  'logos/shana.jpg',
 ];
 const requiredFiles = [
   'index.html',
@@ -130,7 +131,7 @@ if (!(await readFile(path.join(outputDir, 'sitemap.xml'), 'utf8')).includes(`${b
 }
 
 if ((businessHtml.match(/<h2 class="brand-logo-heading">/g) ?? []).length !== businessLogos.length) {
-  failures.push('business/index.html: expected five supplied logos as brand headings');
+  failures.push(`business/index.html: expected ${businessLogos.length} supplied logos as brand headings`);
 }
 for (const logo of businessLogos) {
   if (!businessHtml.includes(`${basePath}/${logo}`)) {

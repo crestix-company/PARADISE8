@@ -50,7 +50,8 @@ const brands = [
   },
   {
     number: '06', type: 'HOME VISIT BEAUTY', name: '訪問美容 Shana', image: '/visit-beauty.jpg',
-    description: '「髪型ひとつで、毎日がもっと楽しく」を掲げる訪問美容ブランド。',
+    logo: brandLogos.shana, logoClass: 'brand-logo--shana',
+    description: <>「髪型ひとつで、毎日がもっと楽しく」を掲げる<span className="type-phrase">訪問美容ブランド。</span></>,
     info: ['サービス詳細・受付情報は公開準備中です'],
     href: '/contact', cta: '公開中の窓口情報を見る',
   },

@@ -33,4 +33,8 @@ export const brandLogos = {
     src: '/logos/paradise8.jpg', alt: '株式会社PARADISE8', width: 1280, height: 1280,
     frame: { x: 77, y: 98, width: 1130, height: 1130 },
   },
+  shana: {
+    src: '/logos/shana.jpg', alt: '訪問美容 Shana', width: 1536, height: 1024,
+    frame: { x: 180, y: 80, width: 1196, height: 850 },
+  },
 } satisfies Record<string, LogoAsset>;

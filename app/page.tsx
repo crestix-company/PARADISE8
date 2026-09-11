@@ -41,7 +41,7 @@ export default function Home() {
       <section className="home-salons" id="salons">
         <div className="home-salons-heading">
           <p className="section-index">02 / HAIR SALON</p>
-          <h2><span className="type-line">美容が、</span><span className="type-line">すべての原点。</span></h2>
+          <h2><span className="type-line">美容が、</span><span className="type-line"><span className="type-phrase">すべての</span><wbr /><span className="type-phrase">原点。</span></span></h2>
           <p>技術と感性で、一人ひとりの“らしさ”をかたちにする。髪を通して毎日を少し自由にすることから、PARADISE8は始まりました。</p>
         </div>
 

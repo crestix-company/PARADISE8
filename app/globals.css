@@ -319,6 +319,7 @@ button, summary { font: inherit; }
 }
 .home-salons-heading > p:last-child,
 .brand-intro > p:last-child { max-width: 400px; color: #5d574f; font-size: 13px; line-height: 2.25; }
+.home-salons-heading h2 { min-width: 0; font-size: clamp(42px, 4.5vw, 72px); }
 .home-salon-showcase { display: grid; gap: clamp(90px, 12vw, 190px); }
 .home-salon-feature { display: grid; grid-template-columns: 68% 32%; align-items: center; }
 .home-salon-feature--reverse { grid-template-columns: 32% 68%; }
@@ -612,6 +613,7 @@ button, summary { font: inherit; }
 .brand-logo--antiques { width: 272px; }
 .brand-logo--clothing { width: 272px; }
 .brand-logo--otton { width: 136px; }
+.brand-logo--shana { width: 320px; }
 .brand-description { max-width: 590px; color: #4f4a43; font-family: var(--jp-serif); font-size: 15px; line-height: 2.05; }
 .brand-card-copy ul { margin-top: 34px; padding: 24px 0 0; border-top: 1px solid var(--line); list-style: none; }
 .brand-card-copy li { color: #686158; font-size: 11px; line-height: 1.9; }

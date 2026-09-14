@@ -148,7 +148,7 @@ for (const page of ['index.html', 'about/index.html', 'business/index.html', 'st
     failures.push(`${page}: message page is missing from navigation`);
   }
   const recruitLinks = [...html.matchAll(/<a\b[^>]*class="[^"]*\brecruit-link\b[^"]*"[^>]*>[\s\S]*?<\/a>/g)].map(match => match[0]);
-  const expectedRecruitLabel = '01 ORIGINAL＃01 park hair&∞ 採用情報';
+  const expectedRecruitLabel = '＃01 ORIGINAL＃01 park hair&∞ 採用情報';
   if ((page !== 'message/index.html' && !recruitLinks.length) || recruitLinks.some(link => {
     const label = link.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/↗/g, '').trim();
     return label !== expectedRecruitLabel || !link.includes('href="https://01park-otto.com/recruit/"');

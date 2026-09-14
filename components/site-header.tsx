@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
-import { RECRUIT_URL } from '@/lib/links';
+import { RECRUIT_LABEL, RECRUIT_URL } from '@/lib/links';
 import { brandLogos } from '@/lib/brand-logos';
 import { SuppliedLogo } from '@/components/supplied-logo';
 
@@ -78,7 +78,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
           <Link href={href} key={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}>{label}</Link>
         ))}
       </nav>
-      <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="header-cta">RECRUIT <span>↗</span></Link>
+      <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="header-cta" aria-label={`RECRUIT：${RECRUIT_LABEL}`}>RECRUIT <span>↗</span></Link>
       <details
         className="mobile-menu"
         ref={menuRef}
@@ -90,7 +90,7 @@ export function SiteHeader({ home = false }: { home?: boolean }) {
           {nav.map(([label, href], index) => (
             <Link href={href} key={href} onClick={closeMenu} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}><b>0{index + 1}</b>{label}<span>→</span></Link>
           ))}
-          <Link href={RECRUIT_URL} onClick={closeMenu} target="_blank" rel="noreferrer"><b>0{nav.length + 1}</b>RECRUIT<span>↗</span></Link>
+          <Link href={RECRUIT_URL} onClick={closeMenu} target="_blank" rel="noreferrer" aria-label={`RECRUIT：${RECRUIT_LABEL}`}><b>0{nav.length + 1}</b>RECRUIT<span>↗</span></Link>
         </nav>
       </details>
     </header>

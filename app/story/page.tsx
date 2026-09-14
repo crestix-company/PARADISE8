@@ -6,6 +6,7 @@ import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { RECRUIT_URL } from '@/lib/links';
+import { RecruitLabel } from '@/components/recruit-label';
 
 export const metadata: Metadata = {
   title: '創業者のストーリー｜株式会社PARADISE8',
@@ -70,7 +71,7 @@ export default function StoryPage() {
       <section className="story-next">
         <p>THE NEXT CHAPTER IS YOURS.</p>
         <h2><span className="type-line">次の物語を、</span><span className="type-phrase">一緒に</span><wbr /><span className="type-phrase">つくろう。</span></h2>
-        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">採用情報を見る <span>↗</span></Link>
+        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link recruit-link"><RecruitLabel /><span aria-hidden="true">↗</span></Link>
       </section>
       <SiteFooter compact />
     </main>

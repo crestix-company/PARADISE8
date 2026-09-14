@@ -147,6 +147,17 @@ for (const page of ['index.html', 'about/index.html', 'business/index.html', 'st
   if (!header.includes(`href="${basePath}/message/"`)) {
     failures.push(`${page}: message page is missing from navigation`);
   }
+  const recruitLinks = [...html.matchAll(/<a\b[^>]*class="[^"]*\brecruit-link\b[^"]*"[^>]*>[\s\S]*?<\/a>/g)].map(match => match[0]);
+  const expectedRecruitLabel = '01 ORIGINAL＃01 park hair&∞ 採用情報';
+  if ((page !== 'message/index.html' && !recruitLinks.length) || recruitLinks.some(link => {
+    const label = link.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/↗/g, '').trim();
+    return label !== expectedRecruitLabel || !link.includes('href="https://01park-otto.com/recruit/"');
+  })) {
+    failures.push(`${page}: recruitment label or destination is inconsistent`);
+  }
+  if (!header.includes(`aria-label="RECRUIT：${expectedRecruitLabel.replace(/&/g, '&amp;')}"`)) {
+    failures.push(`${page}: recruitment navigation has an outdated accessible label`);
+  }
 }
 
 if (!homeHtml.includes('CREATE YOUR') || !homeHtml.includes('PARADISE.')) {

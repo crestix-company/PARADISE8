@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { RECRUIT_URL } from '@/lib/links';
+import { RecruitLabel } from '@/components/recruit-label';
 
 export function RecruitRedirect() {
   useEffect(() => {
@@ -11,7 +12,7 @@ export function RecruitRedirect() {
   return (
     <main className="redirect-page">
       <p>RECRUIT</p>
-      <h1>#01 park hair&amp;∞の<br />採用情報へ移動します。</h1>
+      <h1><RecruitLabel />へ移動します。</h1>
       <a href={RECRUIT_URL}>移動しない場合はこちら <span>↗</span></a>
     </main>
   );

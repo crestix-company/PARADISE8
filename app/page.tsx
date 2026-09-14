@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { RECRUIT_URL } from '@/lib/links';
+import { RecruitLabel } from '@/components/recruit-label';
 
 export default function Home() {
   return (
@@ -93,7 +94,7 @@ export default function Home() {
           <div className="recruit-copy">
             <h2><span className="type-line">美容師という仕事を、</span><span className="type-line">もっと楽しめる場所へ。</span></h2>
             <p>3倍遊んで絆を深め、5倍働いて社会に恩返しする。技術だけでなく、人としての可能性まで広げられるDREAM TEAMをつくろう。</p>
-            <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link">#01 park hair&amp;∞ 採用情報 <span>↗</span></Link>
+            <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="solid-link recruit-link"><RecruitLabel /><span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>

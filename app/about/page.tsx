@@ -4,6 +4,7 @@ import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
 import { RECRUIT_URL } from '@/lib/links';
+import { RecruitLabel } from '@/components/recruit-label';
 
 export const metadata: Metadata = {
   title: '私たちについて｜株式会社PARADISE8',
@@ -72,7 +73,7 @@ export default function AboutPage() {
         <p>PLAY 3× / WORK 5×</p>
         <h2><span className="type-line">遊びから絆を。</span><span className="type-line">仕事から</span><span className="type-line">恩返しを。</span></h2>
         <p>3倍遊んで絆を深め、合わせ鏡に映るDREAM TEAMをつくる。5倍働いて会社と社会に貢献し、感謝を持って恩返しする。</p>
-        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="outline-link">#01 park hair&amp;∞で働く <span>↗</span></Link>
+        <Link href={RECRUIT_URL} target="_blank" rel="noreferrer" className="outline-link recruit-link"><RecruitLabel /><span aria-hidden="true">↗</span></Link>
       </section>
       <SiteFooter compact />
     </main>

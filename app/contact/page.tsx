@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import { PageIntro } from '@/components/page-intro';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
-import { RECRUIT_URL } from '@/lib/links';
+import { RECRUIT_LABEL, RECRUIT_URL } from '@/lib/links';
+import { RecruitLabel } from '@/components/recruit-label';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ｜株式会社PARADISE8',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 const contacts = [
   {
-    type: 'RECRUIT', name: '#01 park hair&∞ 採用情報',
+    type: 'RECRUIT', name: RECRUIT_LABEL,
     note: '募集状況、応募条件、サロン見学について。公式リクルートページをご確認ください',
     actions: [['公式リクルートページを見る', RECRUIT_URL, '↗']],
   },
@@ -83,7 +84,7 @@ export default function ContactPage() {
         {contacts.map((contact, index) => (
           <article key={contact.name}>
             <p className="contact-number">0{index + 1}</p>
-            <div className="contact-name"><span>{contact.type}</span><h2>{contact.name}</h2><p>{contact.note}</p></div>
+            <div className="contact-name"><span>{contact.type}</span><h2>{contact.type === 'RECRUIT' ? <RecruitLabel /> : contact.name}</h2><p>{contact.note}</p></div>
             <div className="contact-actions">
               {contact.actions.map(([label, href, detail]) => (
                 <a href={href} key={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noreferrer' : undefined}>

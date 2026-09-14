@@ -26,8 +26,8 @@ export const brandLogos = {
     frame: { x: 566, y: 1289, width: 2484, height: 965 },
   },
   otton: {
-    src: '/logos/otton.png', alt: 'まるいち おっとん', width: 3544, height: 3544,
-    frame: { x: 773, y: 773, width: 1998, height: 1998 },
+    src: '/logos/otton-wordmark.jpg', alt: 'まるいち おっとん', width: 1024, height: 1024,
+    frame: { x: 246, y: 172, width: 548, height: 591 },
   },
   paradise8: {
     src: '/logos/paradise8.jpg', alt: '株式会社PARADISE8', width: 1280, height: 1280,

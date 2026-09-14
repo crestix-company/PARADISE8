@@ -8,7 +8,7 @@ const businessLogos = [
   'logos/01-park.png',
   'logos/otto-antiques.png',
   'logos/08-old-clothes.png',
-  'logos/otton.png',
+  'logos/otton-wordmark.jpg',
   'logos/shana.jpg',
 ];
 const requiredFiles = [

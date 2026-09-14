@@ -126,6 +126,13 @@ if (!messageHtml.includes('As long as there is hope, there is a possibility.') |
 if (storyHtml.includes('portrait-team.jpg') || storyHtml.includes('<time>2007</time>') || !storyHtml.includes('<time>2008</time>')) {
   failures.push('story/index.html: history still has the director portrait or an outdated founding year');
 }
+const storyIntro = storyHtml.match(/<section class="page-intro[^"]*">[\s\S]*?<\/section>/)?.[0] ?? '';
+if (!storyIntro.includes('page-intro--text') || !storyIntro.includes('MAKE IT.') || storyIntro.includes('<figure') || storyIntro.includes('<img')) {
+  failures.push('story/index.html: expected a text-only introduction with the original heading');
+}
+if (!storyHtml.includes(`${basePath}/salon-original.jpg`) || !businessHtml.includes(`${basePath}/salon-original-wide.jpg`)) {
+  failures.push('unrelated salon photos were removed from STORY or BUSINESS');
+}
 if (!(await readFile(path.join(outputDir, 'sitemap.xml'), 'utf8')).includes(`${basePath}/message`)) {
   failures.push('sitemap.xml: new message page is missing');
 }

@@ -41,10 +41,10 @@ export default function StoryPage() {
         index="03"
         eyebrow="FOUNDER'S STORY"
         title={<>MAKE IT.<br /><em>MEAN IT.</em></>}
-        copy="美容・古着・アンティークを結んだ原点から、食、訪問美容へ。好きなものと向き合いながら、活動の幅を広げてきました。"
-        image="/salon-original-wide.jpg"
-        imageAlt="PARADISE8の原点である美容室#01 ORIGINALのサロン空間"
-        imagePosition="48% 50%"
+        copy={<>
+          <span className="type-line">美容・古着・アンティークを結んだ原点から、食、<span className="type-phrase">訪問美容へ。</span></span>
+          <span className="type-line">好きなものと向き合いながら、<span className="type-phrase">活動の幅を広げてきました。</span></span>
+        </>}
       />
 
       <section className="founder-profile content-section">
